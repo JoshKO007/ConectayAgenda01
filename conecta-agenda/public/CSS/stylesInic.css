@@ -1,0 +1,334 @@
+:root {
+    --bg-color: #faf8f2;
+    --text-color: #4c4f55;
+    --input-bg: #ffffff;
+    --border-color: #4fd7f9;
+    --primary-color: #547fa9;
+    --container-bg: #e0fcf2;
+    
+}
+
+#particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: var(--bg-color);
+    transition: background 0.3s;
+}
+
+.tema-oscuro {
+    --bg-color: #1a1a1a;
+    --text-color: #fff5f5;
+    --input-bg: #2d2d2d;
+    --border-color: #404040;
+    --primary-color: #3d4a56;
+    --container-bg: #2d2d2d;
+    --color-extra: #3185a6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contenedor {
+    background: var(--container-bg);
+    padding: 32px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+    margin-top: 100px; /* Separación constante con el menú */
+    position: relative; /* Asegura que no se superponga con el menú */
+    z-index: 1; /* Coloca el contenedor por encima del canvas */
+}
+
+/* Interruptor de tema */
+.interruptor {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#cambiar-tema {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color: var(--text-color);
+    position: relative;
+}
+
+.texto-tema {
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    white-space: nowrap;
+    font-size: 14px;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+#cambiar-tema:hover .texto-tema {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#cambiar-tema i {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+#cambiar-tema:hover i {
+    transform: rotate(20deg);
+}
+
+/* Resto de estilos */
+.subtitulo {
+    text-align: left;
+    color: #666;
+    margin-bottom: 24px;
+    
+}
+
+.botones-autenticacion {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    transition: background 0.3s;
+
+}
+
+.boton-autenticacion {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: background 0.3s;
+    min-width: 160px;
+}
+
+.boton-autenticacion:hover {
+    background-color: var(--bg-color);
+}
+
+.separador {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+    position: relative;
+}
+
+.separador::before,
+.separador::after {
+    content: "";
+    display: inline-block;
+    width: 43%;
+    height: 1px;
+    background: var(--border-color);
+    vertical-align: middle;
+    margin: 0 8px;
+}
+
+.grupo-formulario {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s;
+    
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33,139,255,0.15);
+}
+
+.boton-crear {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: rgb(255, 254, 254);
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.3s;
+}
+
+.boton-crear:hover {
+    background: #4983f5;
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        margin-top: 80px; /* Reducir la separación en pantallas pequeñas */
+    }
+
+    .menu {
+        padding: 8px 16px; /* Reducir el padding del menú en pantallas pequeñas */
+    }
+}
+
+/* Ajustes para el menú */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--menu-bg, #2c3e50);
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    z-index: 1000;
+        transition: background 0.3s;
+
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--menu-text, #ecf0f1); /* Usamos una variable para el texto */
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: var(--menu-hover, #3498db); /* Usamos una variable para el hover */
+}
+
+.user-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--menu-icon-bg, #34495e); /* Usamos una variable para el fondo del icono */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid var(--menu-icon-border, #ecf0f1); /* Usamos una variable para el borde del icono */
+}
+
+.user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -50%;
+    width: 200%;
+    height: 20px;
+    background-color: var(--menu-bg, #2c3e50); /* Usamos una variable para el fondo */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Ajustes para el tema claro */
+:root {
+    --menu-bg: #547fa9; /* Fondo del menú en tema claro */
+    --menu-text: #ecf0f1; /* Color del texto en tema claro */
+    --menu-hover: #3498db; /* Color del hover en tema claro */
+    --menu-icon-bg: #b4cbe4; /* Fondo del icono en tema claro */
+    --menu-icon-border: #ecf0f1; /* Borde del icono en tema claro */
+}
+
+/* Ajustes para el tema oscuro */
+.tema-oscuro {
+    --menu-bg: #3d4a56; /* Fondo del menú en tema oscuro */
+    --menu-text: #ecf0f1; /* Color del texto en tema oscuro */
+    --menu-hover: #3498db; /* Color del hover en tema oscuro */
+    --menu-icon-bg: #2d2d2d; /* Fondo del icono en tema oscuro */
+    --menu-icon-border: #ecf0f1; /* Borde del icono en tema oscuro */
+}
+
+/* Estilos para las opciones de contraseña */
+.opciones-contrasena {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.opciones p {
+    margin: 8px 0;
+    text-align: center;
+    color: var(--text-color);
+    
+}
+
+/* Estilo para el enlace subrayado */
+.enlace-subrayado {
+    color: var(--color-extra);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+.enlace-completo:hover {
+    color: #d4a72c; /* Un tono más claro del color primario */
+}

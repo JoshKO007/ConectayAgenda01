@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #faf8f2;
+    --text-color: #4c4f55;
+    --input-bg: #ffffff;
+    --border-color: #4fd7f9;
+    --primary-color: #547fa9;
+    --container-bg: rgba(224, 252, 242, 0.7); /* Color del contenedor con transparencia */
+    --contenedor-caracteristicas: #88c8c6;
+}
+
+.tema-oscuro {
+    --bg-color: #1a1a1a;
+    --text-color: #fff5f5;
+    --input-bg: #2d2d2d;
+    --border-color: #404040;
+    --primary-color: #3d4a56;
+    --container-bg: rgba(45, 45, 45, 0.7); /* Color del contenedor con transparencia */
+    --color-extra: #3185a6;
+    --contenedor-caracteristicas: #2f3030;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: var(--bg-color);
+    transition: background 0.3s;
+}
+
+/* Nueva sección de inicio */
+.hero {
+    display: flex;
+    justify-content: center; /* Centrar el contenido */
+    align-items: center;
+    padding: 20px; /* Reducir el padding */
+    background-color: var(--container-bg);
+    transition: background 0.3s;
+}
+
+.hero-text {
+    max-width: 50%;
+    margin-right: 10px; /* Reducir el margen entre texto e imagen */
+    text-align: center; /* Centrar el texto */
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 5px; /* Reducir el margen inferior */
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 50px; /* Reducir el margen inferior */
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 150px;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: background-color 0.3s;
+    margin-top: 100px; /* Añadir mayor margen superior al botón */
+}
+
+.hero-image {
+    margin-left: 10px; /* Reducir el margen izquierdo */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de características */
+.features {
+    background-color: var(--container-bg);
+    padding: 50px;
+    text-align: center;
+    transition: background 0.3s;
+    box-shadow: 0 1px 3px rgba(178, 29, 29, 0.1);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.features h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s;
+    justify-content: center;
+    display: flex;
+    flex-direction: column; 
+    text-align: center; 
+}
+
+.feature {
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    margin: 1%;
+    color: var(--text-color);
+    transition: background 0.3s;
+    background: var(--contenedor-caracteristicas);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.feature i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.feature:hover i {
+    transform: scale(1.1);
+}
+
+/* Sección de testimonios */
+.testimonials {
+    background-color: var(--container-bg);
+    padding: 50px;
+    text-align: center;
+    transition: background 0.3s;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.testimonials h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s;
+    text-align: center; 
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos hijos se dispongan en columna */
+    justify-content: center; /* Centrar verticalmente */
+}
+
+/* Testimonios */
+.testimonial {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    transition: background 0.3s;
+    border-radius: 15px; /* Bordes redondeados */
+    border: 2px solid var(--border-color); /* Añadir borde */
+    padding: 20px; /* Añadir padding */
+    text-align: center; /* Centrar el contenido */
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.testimonial img {
+    width: 80px; /* Ancho de la imagen */
+    height: 80px; /* Alto de la imagen */
+    border-radius: 50%; /* Hacer la imagen redonda */
+    object-fit: cover; /* Ajustar imagen dentro del contenedor */
+    margin-bottom: 10px; /* Añadir margen inferior */
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 10px; /* Añadir margen inferior */
+}
+
+.testimonial h4 {
+    font-size: 18px;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text, .hero-image {
+        max-width: 100%;
+    }
+
+    .feature {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .features, .testimonials {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .feature, .testimonial {
+        width: 30%;
+    }
+}
+
+.interruptor {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+#cambiar-tema {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color: var(--text-color);
+    position: relative;
+    transition: color 0.3s;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.texto-tema {
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    white-space: nowrap;
+    font-size: 14px;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+#cambiar-tema:hover .texto-tema {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#cambiar-tema i {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+#cambiar-tema:hover i {
+    transform: rotate(20deg);
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        margin-top: 80px; /* Reducir la separación en pantallas pequeñas */
+    }
+
+    .menu {
+        padding: 8px 16px; /* Reducir el padding del menú en pantallas pequeñas */
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--menu-bg, #2c3e50);
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    z-index: 1000;
+    transition: background 0.3s;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--menu-text, #ecf0f1); /* Usamos una variable para el texto */
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif; /* Cambiar el tipo de letra */
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: var(--menu-hover, #3498db); /* Usamos una variable para el hover */
+}
+
+.user-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--menu-icon-bg, #34495e); /* Usamos una variable para el fondo del icono */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid var(--menu-icon-border, #ecf0f1); /* Usamos una variable para el borde del icono */
+}
+
+.user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -50%;
+    width: 200%;
+    height: 20px;
+    background-color: var(--menu-bg, #2c3e50); /* Usamos una variable para el fondo */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Ajustes para el tema claro */
+:root {
+    --menu-bg: #547fa9; /* Fondo del menú en tema claro */
+    --menu-text: #ecf0f1; /* Color del texto en tema claro */
+    --menu-hover: #3498db; /* Color del hover en tema claro */
+    --menu-icon-bg: #b4cbe4; /* Fondo del icono en tema claro */
+    --menu-icon-border: #ecf0f1; /* Borde del icono en tema claro */
+}
+
+/* Ajustes para el tema oscuro */
+.tema-oscuro {
+    --menu-bg: #3d4a56; /* Fondo del menú en tema oscuro */
+    --menu-text: #ecf0f1; /* Color del texto en tema oscuro */
+    --menu-hover: #3498db; /* Color del hover en tema oscuro */
+    --menu-icon-bg: #2d2d2d; /* Fondo del icono en tema oscuro */
+    --menu-icon-border: #ecf0f1; /* Borde del icono en tema oscuro */
+}
