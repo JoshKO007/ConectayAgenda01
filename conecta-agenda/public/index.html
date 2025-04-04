@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta y Agenda - Iniciar Sesión</title>
+    <title>Conecta y Agenda</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/stylesInic.css">
 </head>
 <body>
-    <!-- Menú superior -->
     <header>
-        <nav class="menu">
-            <ul>
+        <nav class="menu">     
+            <ul class="menu-items">
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Descargas</a></li>
+                <li><a href="#">Características</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Notas de versión</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
+            <!-- Aquí va el botón hamburguesa con el menú desplegable -->
+            <div class="menu-hamburguesa">
+                <i class="fas fa-bars"></i>
+                <ul class="menu-desplegable"></ul> <!-- Menú oculto, solo aparece al hacer hover -->
+            </div>       
             <div class="user-icon">
                 <i class="fa-duotone fa-solid fa-user"></i>
             </div>
         </nav>
-    </header>
+    </header>    
 
     <canvas id="particulas"></canvas>
 
@@ -35,7 +41,6 @@
    
     <script src="JS/particulas.js"></script>
     <script>
-        // Tema existente
         const cambiarTema = document.getElementById('cambiar-tema');
         const cuerpo = document.body;
         let esOscuro = false;
@@ -56,7 +61,7 @@
             esOscuro = true;
         }
     </script>
+    <script src="JS/menu.js"></script>
 </body>
 </html>
-</body>
-</html>
+
