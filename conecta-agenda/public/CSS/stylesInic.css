@@ -12,6 +12,10 @@
     --menu-icon-border: #ecf0f1;
     --hamburguesa-icon-color: #000000;
     --color-extra: #3185a6; /* Color para el tema oscuro */
+    --glass-bg: rgba(255, 255, 255, 0.05); /* Fondo translúcido más transparente para tema claro */
+    --glass-border: rgba(255, 255, 255, 0.2); /* Borde translúcido para tema claro */
+    --glass-shadow: rgba(0, 0, 0, 0.05); /* Sombra más suave para tema claro */
+    --title-color: #547fa9; /* Color del título para tema claro */
 }
 
 /* Ajustes para el tema oscuro */
@@ -28,6 +32,20 @@
     --menu-icon-bg: #2d2d2d;
     --menu-icon-border: #ecf0f1;
     --hamburguesa-icon-color: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.1); /* Fondo translúcido más transparente para tema oscuro */
+    --glass-border: rgba(255, 255, 255, 0.1); /* Borde translúcido para tema oscuro */
+    --glass-shadow: rgba(0, 0, 0, 0.3); /* Sombra más suave para tema oscuro */
+    --title-color: #4fd7f9; /* Color del título para tema oscuro */
+}
+
+#particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 * {
@@ -46,19 +64,48 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    padding-top: 80px; /* Añade espacio para el menú fijo */
+    position: relative; /* Añade esto */
 }
 
+/* Contenedor con efecto de cristal */
 .contenedor {
-    background: var(--container-bg);
-    padding: 32px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-top: 100px;
-    position: relative;
-    z-index: 1;
-    transition: background 0.3s, box-shadow 0.3s;
+    background: var(--glass-bg); /* Fondo translúcido */
+    border: 2px solid transparent; /* Borde inicial transparente */
+    backdrop-filter: blur(15px); /* Efecto de desenfoque */
+    padding: 40px; /* Aumentar el padding interno */
+    border-radius: 16px; /* Bordes redondeados */
+    width: 95%; /* Igual que el ancho del menú */
+    max-width: 1200px; /* Mantén el mismo ancho máximo que el menú */
+    height: auto; /* Ajusta automáticamente según el contenido */
+    min-height: 300px; /* Altura mínima para que se vea bien */
+    box-shadow: 0 4px 6px var(--glass-shadow); /* Sombra suave */
+    position: absolute; /* Posición absoluta para ubicarlo en X y Y */
+    top: 100px; /* Separación desde la parte superior */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
+    text-align: center; /* Centrar textos */
+    overflow: hidden; /* Ocultar cualquier desbordamiento */
+}
+
+/* Título dentro del contenedor */
+.contenedor h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 24px; /* Separación inferior */
+    color: var(--title-color); /* Color dinámico del título */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Elementos dentro del contenedor */
+.contenedor p {
+    margin-bottom: 20px; /* Mayor separación entre párrafos */
+    line-height: 1.6; /* Mejorar la legibilidad */
+    color: var(--text-color); /* Color del texto */
+}
+
+.contenedor .boton-descargar {
+    margin-top: 30px; /* Mayor separación superior para el botón */
 }
 
 .interruptor {
@@ -206,6 +253,29 @@ input:focus {
     background: #4983f5;
 }
 
+/* Estilo general del botón */
+.boton-descargar {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--menu-bg); /* Usar el color del menú */
+    color: var(--menu-text); /* Usar el color del texto del menú */
+    margin: 20px auto 0; /* Centrar horizontalmente y añadir espacio superior */
+    display: block; /* Asegura que el botón sea un bloque para centrar */
+}
+
+/* Hover para el botón */
+.boton-descargar:hover {
+    background-color: var(--menu-hover); /* Usar el color de hover del menú */
+    color: var(--menu-text); /* Mantener el color del texto */
+}
+
 @media (max-width: 480px) {
     .contenedor {
         margin-top: 80px;
@@ -234,6 +304,12 @@ input:focus {
     max-width: 1200px; /* Mantén el ancho máximo */
     z-index: 1000;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    position: fixed;
+    top: 10px; /* Ajusta según necesites */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Resto de tu código */
+    z-index: 1000;
 }
 .menu ul {
     list-style: none;
