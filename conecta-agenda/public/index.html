@@ -18,13 +18,12 @@
                 <li><a href="#">Notas de versión</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
-            <!-- Aquí va el botón hamburguesa con el menú desplegable -->
             <div class="menu-hamburguesa">
                 <i class="fas fa-bars"></i>
-                <ul class="menu-desplegable"></ul> <!-- Menú oculto, solo aparece al hacer hover -->
+                <ul class="menu-desplegable"></ul>
             </div>       
             <div class="user-icon">
-                <i class="fa-duotone fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i>
             </div>
         </nav>
     </header>    
@@ -49,7 +48,65 @@
         </button>
     </div>
 
-    
+    <!-- Sección de características -->
+    <section class="caracteristicas">
+        <h2>Características destacadas</h2>
+        <div class="caracteristica-item">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Gestión de citas</h3>
+            <p>Organiza tus reuniones y eventos con facilidad.</p>
+        </div>
+        <div class="caracteristica-item">
+            <i class="fas fa-bell"></i>
+            <h3>Recordatorios inteligentes</h3>
+            <p>Recibe notificaciones para no olvidar tus compromisos.</p>
+        </div>
+        <div class="caracteristica-item">
+            <i class="fas fa-cloud"></i>
+            <h3>Sincronización en la nube</h3>
+            <p>Accede a tus datos desde cualquier dispositivo.</p>
+        </div>
+    </section>
+
+    <!-- Sección de testimonios -->
+    <section class="testimonios">
+        <h2>Lo que dicen nuestros usuarios</h2>
+        <div class="testimonio">
+            <img src="images/user1.jpg" alt="Usuario 1">
+            <blockquote>"Conecta y Agenda ha transformado la forma en que organizo mi día. ¡Es increíble!"</blockquote>
+            <p>- María López</p>
+        </div>
+        <div class="testimonio">
+            <img src="images/user2.jpg" alt="Usuario 2">
+            <blockquote>"La mejor herramienta para mantenerme al día con mis reuniones y tareas."</blockquote>
+            <p>- Juan Pérez</p>
+        </div>
+    </section>
+
+    <!-- Sección de preguntas frecuentes -->
+    <section class="faq">
+        <h2>Preguntas frecuentes</h2>
+        <div class="pregunta">
+            <h3>¿Es gratuita la plataforma?</h3>
+            <p>Sí, ofrecemos una versión gratuita con funciones básicas y una versión premium con características avanzadas.</p>
+        </div>
+        <div class="pregunta">
+            <h3>¿Puedo sincronizar mis datos con otros dispositivos?</h3>
+            <p>¡Por supuesto! Conecta y Agenda permite sincronización en la nube para que accedas a tus datos desde cualquier lugar.</p>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="redes-sociales">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 Conecta y Agenda. Todos los derechos reservados.</p>
+    </footer>
+
     <script src="JS/particulas.js"></script>
     <script>
         const cambiarTema = document.getElementById('cambiar-tema');
