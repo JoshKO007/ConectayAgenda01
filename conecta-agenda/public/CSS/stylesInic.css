@@ -224,18 +224,17 @@ input:focus {
     background-color: var(--menu-bg);
     padding: 10px 20px;
     border-radius: 25px;
-    margin: 10px;
+    margin: 10px auto; /* Cambiado a auto para centrar */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 1200px;
+    position: fixed; /* Cambiado a fixed para que esté en la parte superior */
+    top: 0; /* Asegúrate de que esté en la parte superior */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar */
+    width: 95%; /* Asegúrate de que el ancho sea adecuado */
+    max-width: 1200px; /* Mantén el ancho máximo */
     z-index: 1000;
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-
 .menu ul {
     list-style: none;
     margin: 0;
@@ -368,35 +367,39 @@ input:focus {
 
 .menu-desplegable {
     position: absolute;
-    top: 150%;
+    top: 150%; /* Asegúrate de que esté justo debajo del botón de hamburguesa */
     left: auto;
     right: 0;
     background-color: var(--menu-bg);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     list-style: none;
-    padding: 10px 0;
+    padding: 0; /* Eliminar el padding para que los elementos se alineen correctamente */
     z-index: 999;
     min-width: 180px;
     opacity: 0;
     pointer-events: none;
-    transform: translateX(10px) translateY(-10px);
+    transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+    display: flex; /* Usar flexbox para centrar */
+    flex-direction: column; /* Asegurarse de que los elementos se apilen verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.menu-desplegable li {
+    display: flex; /* Usar flexbox para centrar el contenido dentro de cada elemento */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    padding: 10px 20px; /* Espaciado interno para los elementos */
+    text-align: center; /* Alineación del texto */
+    transition: background 0.3s ease;
+    width: 100%; /* Asegurarse de que cada elemento ocupe toda la línea */
 }
 
 .menu-desplegable.activo {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(10px) translateY(0);
-}
-
-.menu-desplegable li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    text-align: center;
-    transition: background 0.3s ease;
+    transform: translateY(0);
 }
 
 .menu-desplegable li a {
